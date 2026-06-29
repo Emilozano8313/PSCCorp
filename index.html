@@ -517,8 +517,77 @@
         </section>
 
         <!-- ============================================== -->
+        <!-- SECCIÓN ESTADÍSTICAS ANIMADAS                 -->
+        <!-- ============================================== -->
+        <section class="py-20 md:py-28 relative overflow-hidden">
+            <!-- Fondo con gradiente sutil -->
+            <div class="absolute inset-0 bg-gradient-to-r from-neonBlue/5 via-transparent to-neonAmber/5 pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neonBlue/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-16">
+                    <div class="inline-block px-4 py-1.5 border border-white/10 rounded-full text-xs font-medium uppercase tracking-wider text-textMuted mb-4">Resultados que hablan</div>
+                    <h2 class="font-syne font-bold text-4xl md:text-5xl">Números que nos <span class="text-neonBlue">respaldan</span></h2>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" id="statsGrid">
+
+                    <!-- Stat 1: Instalaciones -->
+                    <div class="relative bg-card/60 backdrop-blur-sm border border-white/5 hover:border-neonBlue/40 rounded-2xl p-6 md:p-8 text-center group transition-all duration-500 hover:shadow-glow-blue overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neonBlue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"></div>
+                        <div class="relative">
+                            <div class="text-4xl md:text-5xl font-syne font-bold text-neonBlue mb-2 flex items-end justify-center gap-1">
+                                <span class="stat-counter" data-target="120" data-suffix="+">0</span>
+                            </div>
+                            <div class="w-8 h-0.5 bg-neonBlue/40 mx-auto mb-3 group-hover:w-16 transition-all duration-500"></div>
+                            <p class="text-textMuted text-sm font-medium uppercase tracking-wider">Instalaciones<br>activas</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat 2: Ahorro energético -->
+                    <div class="relative bg-card/60 backdrop-blur-sm border border-white/5 hover:border-neonAmber/40 rounded-2xl p-6 md:p-8 text-center group transition-all duration-500 hover:shadow-glow-amber overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neonAmber/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"></div>
+                        <div class="relative">
+                            <div class="text-4xl md:text-5xl font-syne font-bold text-neonAmber mb-2 flex items-end justify-center gap-1">
+                                <span class="stat-counter" data-target="40" data-suffix="%">0</span>
+                            </div>
+                            <div class="w-8 h-0.5 bg-neonAmber/40 mx-auto mb-3 group-hover:w-16 transition-all duration-500"></div>
+                            <p class="text-textMuted text-sm font-medium uppercase tracking-wider">Ahorro promedio<br>en energía</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat 3: Años de experiencia -->
+                    <div class="relative bg-card/60 backdrop-blur-sm border border-white/5 hover:border-neonBlue/40 rounded-2xl p-6 md:p-8 text-center group transition-all duration-500 hover:shadow-glow-blue overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neonBlue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"></div>
+                        <div class="relative">
+                            <div class="text-4xl md:text-5xl font-syne font-bold text-neonBlue mb-2 flex items-end justify-center gap-1">
+                                <span class="stat-counter" data-target="15" data-suffix="+">0</span>
+                            </div>
+                            <div class="w-8 h-0.5 bg-neonBlue/40 mx-auto mb-3 group-hover:w-16 transition-all duration-500"></div>
+                            <p class="text-textMuted text-sm font-medium uppercase tracking-wider">Años de<br>experiencia</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat 4: ROI promedio -->
+                    <div class="relative bg-card/60 backdrop-blur-sm border border-white/5 hover:border-neonAmber/40 rounded-2xl p-6 md:p-8 text-center group transition-all duration-500 hover:shadow-glow-amber overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neonAmber/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"></div>
+                        <div class="relative">
+                            <div class="text-4xl md:text-5xl font-syne font-bold text-neonAmber mb-2 flex items-end justify-center gap-1">
+                                <span class="stat-counter" data-target="2" data-suffix=".5 años">0</span>
+                            </div>
+                            <div class="w-8 h-0.5 bg-neonAmber/40 mx-auto mb-3 group-hover:w-16 transition-all duration-500"></div>
+                            <p class="text-textMuted text-sm font-medium uppercase tracking-wider">ROI<br>promedio</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
         <!-- SECCIÓN TECNOLOGÍA                             -->
         <!-- ============================================== -->
+
         <section id="tecnologia" class="py-28 md:py-36">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-20">
@@ -990,6 +1059,66 @@
                 }, 3000);
             }, 1500);
         }
+
+        // ==========================================
+        // ANIMATED STATS COUNTER
+        // ==========================================
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-target'), 10);
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 1800;
+            const start = performance.now();
+
+            function easeOutExpo(t) {
+                return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+            }
+
+            function tick(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeOutExpo(progress);
+                const current = Math.floor(eased * target);
+                el.textContent = current + (progress === 1 ? suffix : '');
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                }
+            }
+
+            requestAnimationFrame(tick);
+        }
+
+        // Observe the stats grid and trigger animation + staggered fade-in
+        const statsGrid = document.getElementById('statsGrid');
+        if (statsGrid) {
+            const statCards = statsGrid.querySelectorAll(':scope > div');
+            
+            // Set initial invisible state for stagger
+            statCards.forEach((card, i) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s`;
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate cards in
+                        statCards.forEach(card => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        });
+                        // Start all counters
+                        document.querySelectorAll('.stat-counter').forEach(counter => {
+                            animateCounter(counter);
+                        });
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(statsGrid);
+        }
     </script>
+
 </body>
 </html>
