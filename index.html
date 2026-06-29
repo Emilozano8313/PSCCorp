@@ -90,25 +90,164 @@
         .img-3d-rotate {
             transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             transform-style: preserve-3d;
-            transform: rotateY(0deg) rotateX(0deg) scale(1);
+            transform: rotateY(-15deg) rotateX(10deg) scale(1);
         }
 
         /* Animación de rotación 3D continua con inclinación en X */
         @keyframes spin3D {
             0% {
-                transform: rotateY(0deg) rotateX(12deg) scale(1.05);
-            }
-            50% {
-                transform: rotateY(180deg) rotateX(12deg) scale(1.05);
+                transform: rotateY(-15deg) rotateX(10deg) scale(1.05);
             }
             100% {
-                transform: rotateY(360deg) rotateX(12deg) scale(1.05);
+                transform: rotateY(345deg) rotateX(10deg) scale(1.05);
             }
         }
 
         /* Activar la rotación cuando el elemento padre (.group) tiene hover */
         .group:hover .img-3d-rotate {
             animation: spin3D 8s linear infinite;
+        }
+
+        /* Mix blend mode utility */
+        .mix-blend-screen {
+            mix-blend-mode: screen;
+        }
+
+        /* --- 3D FREEZER CUBE --- */
+        .cube-freezer {
+            width: 140px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .freezer-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 6px;
+        }
+        .freezer-front {
+            width: 140px;
+            height: 200px;
+            background-color: #1a1a1a;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
+            transform: rotateY(0deg) translateZ(60px);
+        }
+        .freezer-back {
+            width: 140px;
+            height: 200px;
+            background: repeating-linear-gradient(0deg, #111, #111 6px, #252525 6px, #252525 8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: rotateY(180deg) translateZ(60px);
+        }
+        .freezer-left {
+            width: 120px;
+            height: 200px;
+            left: 10px;
+            background: linear-gradient(90deg, #151515, #252525);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: rotateY(-90deg) translateZ(70px);
+        }
+        .freezer-right {
+            width: 120px;
+            height: 200px;
+            left: 10px;
+            background: linear-gradient(90deg, #252525, #151515);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: rotateY(90deg) translateZ(70px);
+        }
+        .freezer-top {
+            width: 140px;
+            height: 120px;
+            top: 40px;
+            background: #202020;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .freezer-bottom {
+            width: 140px;
+            height: 120px;
+            top: 40px;
+            background: #0c0c0c;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        /* --- 3D SOLAR PANEL CUBE --- */
+        .cube-solar {
+            width: 180px;
+            height: 180px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .solar-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 4px;
+        }
+        .solar-front {
+            width: 180px;
+            height: 180px;
+            background-color: #121212;
+            border: 1px solid rgba(255, 179, 0, 0.2);
+            box-shadow: 0 0 25px rgba(255, 179, 0, 0.25);
+            transform: rotateY(0deg) translateZ(8px);
+        }
+        .solar-back {
+            width: 180px;
+            height: 180px;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: rotateY(180deg) translateZ(8px);
+        }
+        .solar-back::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 4px;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.8);
+        }
+        .solar-left {
+            width: 16px;
+            height: 180px;
+            left: 82px;
+            background: linear-gradient(90deg, #2a2a2a, #444, #2a2a2a);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: rotateY(-90deg) translateZ(90px);
+        }
+        .solar-right {
+            width: 16px;
+            height: 180px;
+            left: 82px;
+            background: linear-gradient(90deg, #2a2a2a, #444, #2a2a2a);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: rotateY(90deg) translateZ(90px);
+        }
+        .solar-top {
+            width: 180px;
+            height: 16px;
+            top: 82px;
+            background: linear-gradient(0deg, #2a2a2a, #444, #2a2a2a);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: rotateX(90deg) translateZ(90px);
+        }
+        .solar-bottom {
+            width: 180px;
+            height: 16px;
+            top: 82px;
+            background: linear-gradient(0deg, #2a2a2a, #444, #2a2a2a);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: rotateX(-90deg) translateZ(90px);
         }
 
         /* Gradiente para el CTA Principal */
@@ -245,8 +384,17 @@
                 <!-- Lado A: Congeladores -->
                 <div class="group relative bg-card rounded-3xl p-8 pt-56 md:pt-64 border border-white/5 hover:border-neonBlue/50 hover:shadow-glow-blue transition-all duration-500 flex flex-col mt-16 md:mt-0">
                     <!-- Imagen 3D -->
-                    <div class="absolute -top-20 md:-top-28 left-1/2 -translate-x-1/2 w-5/6 md:w-3/4 h-56 md:h-72 flex items-center justify-center img-3d-container z-10">
-                        <img src="assets/congelador.png" alt="Serie Frío Extremo" class="max-h-full max-w-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,229,255,0.35)] img-3d-rotate select-none">
+                    <div class="absolute -top-20 md:-top-28 left-1/2 -translate-x-1/2 w-5/6 md:w-3/4 h-56 md:h-72 flex items-center justify-center img-3d-container z-10 select-none pointer-events-none">
+                        <div class="cube-freezer img-3d-rotate">
+                            <div class="freezer-face freezer-front">
+                                <img src="assets/congelador.png" alt="Serie Frío Extremo" class="w-full h-full object-contain mix-blend-screen">
+                            </div>
+                            <div class="freezer-face freezer-back"></div>
+                            <div class="freezer-face freezer-left"></div>
+                            <div class="freezer-face freezer-right"></div>
+                            <div class="freezer-face freezer-top"></div>
+                            <div class="freezer-face freezer-bottom"></div>
+                        </div>
                     </div>
                     
                     <div class="relative z-0 flex flex-col flex-grow">
@@ -266,8 +414,17 @@
                 <!-- Lado B: Paneles Solares -->
                 <div class="group relative bg-card rounded-3xl p-8 pt-56 md:pt-64 border border-white/5 hover:border-neonAmber/50 hover:shadow-glow-amber transition-all duration-500 flex flex-col mt-24 md:mt-0">
                      <!-- Imagen 3D -->
-                     <div class="absolute -top-20 md:-top-28 left-1/2 -translate-x-1/2 w-5/6 md:w-3/4 h-56 md:h-72 flex items-center justify-center img-3d-container z-10">
-                        <img src="assets/panel_solar.png" alt="Energía Inteligente" class="max-h-full max-w-full object-contain filter drop-shadow-[0_15px_30px_rgba(255,179,0,0.35)] img-3d-rotate select-none">
+                     <div class="absolute -top-20 md:-top-28 left-1/2 -translate-x-1/2 w-5/6 md:w-3/4 h-56 md:h-72 flex items-center justify-center img-3d-container z-10 select-none pointer-events-none">
+                        <div class="cube-solar img-3d-rotate">
+                            <div class="solar-face solar-front">
+                                <img src="assets/panel_solar.png" alt="Energía Inteligente" class="w-full h-full object-contain mix-blend-screen">
+                            </div>
+                            <div class="solar-face solar-back"></div>
+                            <div class="solar-face solar-left"></div>
+                            <div class="solar-face solar-right"></div>
+                            <div class="solar-face solar-top"></div>
+                            <div class="solar-face solar-bottom"></div>
+                        </div>
                     </div>
 
                     <div class="relative z-0 flex flex-col flex-grow">
