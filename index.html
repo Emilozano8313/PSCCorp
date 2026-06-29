@@ -138,7 +138,7 @@
         .freezer-back {
             width: 140px;
             height: 200px;
-            background: repeating-linear-gradient(0deg, #111, #111 6px, #252525 6px, #252525 8px);
+            background-color: #1a1a1a;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transform: rotateY(180deg) translateZ(60px);
         }
@@ -146,7 +146,7 @@
             width: 120px;
             height: 200px;
             left: 10px;
-            background: linear-gradient(90deg, #151515, #252525);
+            background-color: #1a1a1a;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transform: rotateY(-90deg) translateZ(70px);
         }
@@ -154,7 +154,7 @@
             width: 120px;
             height: 200px;
             left: 10px;
-            background: linear-gradient(90deg, #252525, #151515);
+            background-color: #1a1a1a;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transform: rotateY(90deg) translateZ(70px);
         }
@@ -200,22 +200,9 @@
         .solar-back {
             width: 180px;
             height: 180px;
-            background: #1a1a1a;
+            background-color: #121212;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transform: rotateY(180deg) translateZ(8px);
-        }
-        .solar-back::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            border-radius: 4px;
-            box-shadow: inset 0 0 8px rgba(0,0,0,0.8);
         }
         .solar-left {
             width: 16px;
@@ -389,9 +376,15 @@
                             <div class="freezer-face freezer-front">
                                 <img src="assets/congelador.png" alt="Serie Frío Extremo" class="w-full h-full object-contain mix-blend-screen">
                             </div>
-                            <div class="freezer-face freezer-back"></div>
-                            <div class="freezer-face freezer-left"></div>
-                            <div class="freezer-face freezer-right"></div>
+                            <div class="freezer-face freezer-back">
+                                <img src="assets/congelador_atras.png" alt="Atras" class="w-full h-full object-cover mix-blend-screen">
+                            </div>
+                            <div class="freezer-face freezer-left">
+                                <img src="assets/congelador_lateral.png" alt="Lateral" class="w-full h-full object-cover mix-blend-screen">
+                            </div>
+                            <div class="freezer-face freezer-right">
+                                <img src="assets/congelador_lateral.png" alt="Lateral" class="w-full h-full object-cover mix-blend-screen">
+                            </div>
                             <div class="freezer-face freezer-top"></div>
                             <div class="freezer-face freezer-bottom"></div>
                         </div>
@@ -419,7 +412,9 @@
                             <div class="solar-face solar-front">
                                 <img src="assets/panel_solar.png" alt="Energía Inteligente" class="w-full h-full object-contain mix-blend-screen">
                             </div>
-                            <div class="solar-face solar-back"></div>
+                            <div class="solar-face solar-back">
+                                <img src="assets/panel_solar_atras.png" alt="Atras" class="w-full h-full object-cover mix-blend-screen">
+                            </div>
                             <div class="solar-face solar-left"></div>
                             <div class="solar-face solar-right"></div>
                             <div class="solar-face solar-top"></div>
