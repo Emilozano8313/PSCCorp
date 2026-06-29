@@ -115,8 +115,8 @@
 
         /* --- 3D FREEZER CUBE --- */
         .cube-freezer {
-            width: 140px;
-            height: 200px;
+            width: 170px;
+            height: 220px;
             position: relative;
             transform-style: preserve-3d;
         }
@@ -128,51 +128,59 @@
             border-radius: 6px;
         }
         .freezer-front {
-            width: 140px;
-            height: 200px;
+            width: 170px;
+            height: 220px;
             background-color: #1a1a1a;
             border: 1px solid rgba(0, 229, 255, 0.2);
             box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
-            transform: rotateY(0deg) translateZ(60px);
+            transform: rotateY(0deg) translateZ(65px);
+            overflow: hidden;
+        }
+        .freezer-front img {
+            transform: scale(1.15);
         }
         .freezer-back {
-            width: 140px;
-            height: 200px;
+            width: 170px;
+            height: 220px;
             background-color: #1a1a1a;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: rotateY(180deg) translateZ(60px);
+            transform: rotateY(180deg) translateZ(65px);
+            overflow: hidden;
+        }
+        .freezer-back img {
+            transform: scale(1.15);
         }
         .freezer-left {
-            width: 120px;
-            height: 200px;
-            left: 10px;
+            width: 130px;
+            height: 220px;
+            left: 20px;
             background-color: #1a1a1a;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transform: rotateY(-90deg) translateZ(70px);
+            transform: rotateY(-90deg) translateZ(85px);
         }
         .freezer-right {
-            width: 120px;
-            height: 200px;
-            left: 10px;
+            width: 130px;
+            height: 220px;
+            left: 20px;
             background-color: #1a1a1a;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transform: rotateY(90deg) translateZ(70px);
+            transform: rotateY(90deg) translateZ(85px);
         }
         .freezer-top {
-            width: 140px;
-            height: 120px;
-            top: 40px;
+            width: 170px;
+            height: 130px;
+            top: 45px;
             background: #202020;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transform: rotateX(90deg) translateZ(100px);
+            transform: rotateX(90deg) translateZ(110px);
         }
         .freezer-bottom {
-            width: 140px;
-            height: 120px;
-            top: 40px;
+            width: 170px;
+            height: 130px;
+            top: 45px;
             background: #0c0c0c;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transform: rotateX(-90deg) translateZ(100px);
+            transform: rotateX(-90deg) translateZ(110px);
         }
 
         /* --- 3D SOLAR PANEL CUBE --- */
