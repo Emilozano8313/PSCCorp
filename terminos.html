@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos de Servicio | PSCCorp</title>
+    <meta name="description" content="Términos y condiciones de los servicios de PSCCorp: refrigeración industrial, paneles solares, cotizaciones, garantías y soporte técnico.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#121212',
+                        card: '#1E1E1E',
+                        formbg: '#181818',
+                        neonBlue: '#00E5FF',
+                        neonAmber: '#FFB300',
+                        textMain: '#F5F5F5',
+                        textMuted: '#A0A0A0'
+                    },
+                    fontFamily: {
+                        syne: ['Syne', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #121212;
+            color: #F5F5F5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bg-gradient-cta {
+            background: linear-gradient(135deg, #FFB300 0%, #E65100 100%);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bg-gradient-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(255, 179, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="font-inter min-h-screen flex flex-col selection:bg-neonAmber selection:text-dark">
+
+    <header class="fixed w-full top-0 z-50 bg-dark/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-syne font-bold text-2xl tracking-wide flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <div class="w-8 h-8 bg-white rounded-sm flex items-center justify-center text-dark text-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                PSC<span class="text-textMuted font-light">CORP</span>
+            </a>
+            
+            <a href="index.html#cotizar" class="hidden md:inline-flex bg-gradient-cta text-dark font-bold py-2.5 px-6 rounded-full text-sm">
+                Cotizar ahora
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-28 md:pt-40 pb-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 text-sm text-textMuted mb-8">
+                <a href="index.html" class="hover:text-white transition-colors">Inicio</a>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <span class="text-white">Términos de Servicio</span>
+            </div>
+
+            <!-- Header -->
+            <div class="mb-16">
+                <div class="inline-block px-4 py-1.5 border border-neonAmber/20 rounded-full text-xs font-medium uppercase tracking-wider text-neonAmber mb-4">Legal</div>
+                <h1 class="font-syne font-bold text-4xl md:text-5xl mb-4">Términos de <span class="text-neonAmber">Servicio</span></h1>
+                <p class="text-textMuted text-lg">Última actualización: Junio 2026</p>
+            </div>
+
+            <!-- Content -->
+            <div class="space-y-12">
+                <!-- Section 1 -->
+                <section class="bg-card rounded-2xl p-8 border border-white/5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-neonAmber/10 flex items-center justify-center text-neonAmber">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h2 class="font-syne font-bold text-2xl">1. Descripción de servicios</h2>
+                    </div>
+                    <div class="text-textMuted leading-relaxed space-y-4">
+                        <p>PSCCorp Industrial S.A. de C.V. ofrece los siguientes servicios especializados para el sector industrial:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                            <div class="bg-dark rounded-xl p-4 border border-white/5">
+                                <h3 class="text-neonBlue font-syne font-bold mb-2">Refrigeración Industrial</h3>
+                                <p class="text-sm">Diseño, suministro, instalación y mantenimiento de sistemas de congelación y refrigeración de la Serie Frío Extremo con capacidades de -40°C a +5°C y volúmenes de 500L a 5,000L.</p>
+                            </div>
+                            <div class="bg-dark rounded-xl p-4 border border-white/5">
+                                <h3 class="text-neonAmber font-syne font-bold mb-2">Energía Solar Fotovoltaica</h3>
+                                <p class="text-sm">Diseño, suministro, instalación e interconexión a CFE de sistemas de paneles solares monocristalinos PERC y bifaciales de la línea Energía Inteligente con potencias de 400W a 600W por panel.</p>
+                            </div>
+                            <div class="bg-dark rounded-xl p-4 border border-white/5">
+                                <h3 class="text-neonBlue font-syne font-bold mb-2">Monitoreo IoT</h3>
+                                <p class="text-sm">Plataforma de monitoreo en tiempo real para equipos de refrigeración y generación solar, con alertas automatizadas y dashboard web accesible 24/7.</p>
+                            </div>
+                            <div class="bg-dark rounded-xl p-4 border border-white/5">
+                                <h3 class="text-neonAmber font-syne font-bold mb-2">Asesoría Técnica</h3>
+                                <p class="text-sm">Estudios de viabilidad técnica y financiera, dimensionamiento de sistemas, análisis de retorno de inversión y consultoría en eficiencia energética industrial.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="bg-card rounded-2xl p-8 border border-white/5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-neonAmber/10 flex items-center justify-center text-neonAmber">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        </div>
+                        <h2 class="font-syne font-bold text-2xl">2. Proceso de cotización y contratación</h2>
+                    </div>
+                    <div class="text-textMuted leading-relaxed space-y-4">
+                        <p>El proceso de adquisición de nuestros servicios sigue las siguientes etapas:</p>
+                        <ol class="list-decimal pl-6 space-y-3">
+                            <li><strong class="text-white">Solicitud inicial:</strong> El cliente envía sus datos a través del formulario web o vía WhatsApp. Un asesor técnico se comunicará en un plazo máximo de 2 horas hábiles.</li>
+                            <li><strong class="text-white">Visita técnica:</strong> Un ingeniero especializado realizará un levantamiento en sitio sin costo para evaluar las condiciones de instalación, requerimientos eléctricos y estructurales.</li>
+                            <li><strong class="text-white">Propuesta formal:</strong> Se entrega una cotización detallada con especificaciones técnicas, cronograma de instalación, plan de financiamiento y análisis de retorno de inversión.</li>
+                            <li><strong class="text-white">Aprobación y contrato:</strong> Una vez aceptada la propuesta, se firma un contrato de prestación de servicios con los términos específicos del proyecto.</li>
+                            <li><strong class="text-white">Ejecución:</strong> Instalación del sistema según el cronograma acordado, con supervisión técnica certificada.</li>
+                            <li><strong class="text-white">Puesta en marcha:</strong> Pruebas de funcionamiento, calibración de equipos, configuración del sistema IoT y capacitación al personal del cliente.</li>
+                        </ol>
+                        <p class="mt-4 text-sm"><em>Las cotizaciones tienen una vigencia de 30 días naturales a partir de su fecha de emisión, sujetas a disponibilidad de inventario y variaciones en tipo de cambio.</em></p>
+                    </div>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="bg-card rounded-2xl p-8 border border-white/5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-neonAmber/10 flex items-center justify-center text-neonAmber">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h2 class="font-syne font-bold text-2xl">3. Garantías</h2>
+                    </div>
+                    <div class="text-textMuted leading-relaxed space-y-4">
+                        <p>PSCCorp respalda la calidad de sus productos y servicios con las siguientes garantías:</p>
+                        
+                        <h3 class="text-white font-syne font-bold text-lg mt-6">Sistemas de Refrigeración — Serie Frío Extremo</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong class="text-white">Compresor:</strong> 5 años de garantía en el compresor inverter contra defectos de manufactura.</li>
+                            <li><strong class="text-white">Estructura:</strong> 3 años en gabinete, paneles de aislamiento y componentes estructurales.</li>
+                            <li><strong class="text-white">Electrónica:</strong> 2 años en tarjetas de control, sensores IoT y sistemas de monitoreo.</li>
+                            <li><strong class="text-white">Mano de obra:</strong> 1 año en la instalación y configuración inicial del sistema.</li>
+                        </ul>
+
+                        <h3 class="text-white font-syne font-bold text-lg mt-6">Sistemas Solares — Energía Inteligente</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong class="text-white">Paneles solares:</strong> 12 años contra defectos de manufactura. 25 años de garantía de rendimiento (mínimo 80% de potencia nominal).</li>
+                            <li><strong class="text-white">Inversores:</strong> 10 años de garantía del fabricante.</li>
+                            <li><strong class="text-white">Estructura de montaje:</strong> 15 años en soportes de aluminio anodizado (certificados para vientos de hasta 200 km/h).</li>
+                            <li><strong class="text-white">Instalación:</strong> 2 años en mano de obra de instalación y cableado.</li>
+                        </ul>
+
+                        <div class="bg-dark rounded-xl p-4 border border-neonAmber/20 mt-4">
+                            <p class="text-sm"><strong class="text-neonAmber">⚠ Importante:</strong> Las garantías quedan sin efecto si el equipo ha sido manipulado, modificado o reparado por personal no autorizado por PSCCorp, o si ha sido sometido a condiciones fuera de las especificaciones técnicas indicadas en el manual de usuario.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="bg-card rounded-2xl p-8 border border-white/5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-neonAmber/10 flex items-center justify-center text-neonAmber">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        </div>
+                        <h2 class="font-syne font-bold text-2xl">4. Limitaciones de responsabilidad</h2>
+                    </div>
+                    <div class="text-textMuted leading-relaxed space-y-4">
+                        <p>PSCCorp no será responsable por:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Daños derivados de causas de fuerza mayor incluyendo, pero no limitándose a: desastres naturales, interrupciones prolongadas del suministro eléctrico de la red pública, actos de vandalismo o guerra.</li>
+                            <li>Pérdidas consecuenciales o lucro cesante derivados de la interrupción del servicio de los equipos, excepto cuando dicha interrupción sea atribuible directamente a defectos de fabricación cubiertos por la garantía vigente.</li>
+                            <li>Daños causados por el uso inadecuado de los equipos, falta de mantenimiento preventivo recomendado, o modificaciones realizadas sin autorización escrita de PSCCorp.</li>
+                            <li>Variaciones en la generación solar atribuibles a condiciones climáticas, sombreado por construcciones vecinas posteriores a la instalación, o cambios en las políticas de interconexión de CFE.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 5 -->
+                <section class="bg-card rounded-2xl p-8 border border-white/5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-neonAmber/10 flex items-center justify-center text-neonAmber">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                        </div>
+                        <h2 class="font-syne font-bold text-2xl">5. Legislación aplicable</h2>
+                    </div>
+                    <div class="text-textMuted leading-relaxed space-y-4">
+                        <p>Estos Términos de Servicio se rigen por las leyes de los Estados Unidos Mexicanos. Para la interpretación y cumplimiento de los presentes términos, las partes se someten a la jurisdicción de los tribunales competentes de la Ciudad de México, renunciando expresamente a cualquier otro fuero que pudiera corresponderles por razón de sus domicilios presentes o futuros.</p>
+                        <p>Nuestros servicios cumplen con las siguientes normativas aplicables:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong class="text-white">NOM-015-ENER:</strong> Eficiencia energética de refrigeradores y congeladores comerciales.</li>
+                            <li><strong class="text-white">NOM-001-SEDE:</strong> Instalaciones eléctricas (utilización).</li>
+                            <li><strong class="text-white">Reglas de interconexión CRE:</strong> Para la generación distribuida de energía solar fotovoltaica.</li>
+                            <li><strong class="text-white">COFEPRIS:</strong> Normativas sanitarias para equipos de refrigeración de uso farmacéutico y alimentario.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 6 -->
+                <section class="bg-card rounded-2xl p-8 border border-white/5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-neonAmber/10 flex items-center justify-center text-neonAmber">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                        </div>
+                        <h2 class="font-syne font-bold text-2xl">6. Propiedad intelectual</h2>
+                    </div>
+                    <div class="text-textMuted leading-relaxed space-y-4">
+                        <p>Todo el contenido publicado en este sitio web, incluyendo pero no limitándose a: textos, imágenes, logotipos, diseños, software de monitoreo IoT, algoritmos de optimización energética y documentación técnica, es propiedad exclusiva de PSCCorp Industrial S.A. de C.V. o de sus licenciantes.</p>
+                        <p>Queda prohibida la reproducción, distribución, transformación o comunicación pública de cualquier contenido sin autorización previa por escrito de PSCCorp, excepto para uso personal no comercial del cliente en relación directa con los servicios contratados.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-white/5 bg-dark pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="index.html" class="font-syne font-bold text-xl flex items-center gap-2 hover:opacity-80 transition-opacity">
+                PSC<span class="text-textMuted font-light">CORP</span>
+            </a>
+            
+            <div class="flex gap-6 text-sm text-textMuted">
+                <a href="privacidad.html" class="hover:text-white transition-colors">Políticas de Privacidad</a>
+                <a href="terminos.html" class="text-white transition-colors">Términos de Servicio</a>
+                <a href="portal-clientes.html" class="hover:text-white transition-colors">Portal de Clientes</a>
+            </div>
+            
+            <p class="text-xs text-white/30">
+                &copy; 2026 PSCCorp Industrial. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

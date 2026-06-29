@@ -123,11 +123,32 @@
             </a>
             
             <!-- Menú Mobile -->
-            <button class="md:hidden text-white">
+            <button id="mobileMenuBtn" class="md:hidden text-white" onclick="toggleMobileMenu()">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 z-[60] pointer-events-none opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+        <div id="mobileMenuPanel" class="absolute top-0 right-0 w-72 h-full bg-dark border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-out flex flex-col">
+            <div class="flex items-center justify-between p-6 border-b border-white/10">
+                <span class="font-syne font-bold text-xl">PSC<span class="text-textMuted font-light">CORP</span></span>
+                <button onclick="toggleMobileMenu()" class="text-white/60 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <nav class="flex flex-col p-6 gap-1">
+                <a href="#soluciones" onclick="toggleMobileMenu()" class="py-3 px-4 rounded-xl text-textMuted hover:text-white hover:bg-white/5 transition-all font-medium">Soluciones</a>
+                <a href="#beneficios" onclick="toggleMobileMenu()" class="py-3 px-4 rounded-xl text-textMuted hover:text-white hover:bg-white/5 transition-all font-medium">Beneficios</a>
+                <a href="#tecnologia" onclick="toggleMobileMenu()" class="py-3 px-4 rounded-xl text-textMuted hover:text-white hover:bg-white/5 transition-all font-medium">Tecnología</a>
+            </nav>
+            <div class="mt-auto p-6 border-t border-white/10">
+                <a href="#cotizar" onclick="toggleMobileMenu()" class="block text-center bg-gradient-cta text-dark font-bold py-3 px-6 rounded-full text-sm">Cotizar ahora</a>
+            </div>
+        </div>
+    </div>
 
     <main class="flex-grow pt-28 md:pt-40">
         <section class="max-w-7xl mx-auto px-6 pb-20 md:pb-32 flex flex-col lg:flex-row items-center gap-12">
@@ -207,7 +228,7 @@
                         <h3 class="font-syne font-bold text-3xl mb-3">Serie Frío Extremo</h3>
                         <p class="text-textMuted mb-8 leading-relaxed flex-grow">Sistemas de ultra-congelación con recuperación térmica. Mantiene la cadena de frío intacta con un 40% menos de consumo eléctrico frente a estándares del mercado.</p>
                         
-                        <button class="w-full border border-white/20 text-white font-medium py-3 rounded-xl btn-fluid btn-fluid-blue uppercase tracking-wider text-sm flex items-center justify-center gap-2 mt-auto">
+                        <button onclick="openModal('modalFrio')" class="w-full border border-white/20 text-white font-medium py-3 rounded-xl btn-fluid btn-fluid-blue uppercase tracking-wider text-sm flex items-center justify-center gap-2 mt-auto">
                             Ver especificaciones
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </button>
@@ -229,13 +250,177 @@
                         <h3 class="font-syne font-bold text-3xl mb-3">Energía Inteligente</h3>
                         <p class="text-textMuted mb-8 leading-relaxed flex-grow">Celdas monocristalinas de alta densidad. Independencia energética total o parcial para mitigar los altos costos operativos industriales. Retorno de inversión garantizado.</p>
                         
-                        <button class="w-full border border-white/20 text-white font-medium py-3 rounded-xl btn-fluid btn-fluid-amber uppercase tracking-wider text-sm flex items-center justify-center gap-2 mt-auto">
+                        <button onclick="openModal('modalSolar')" class="w-full border border-white/20 text-white font-medium py-3 rounded-xl btn-fluid btn-fluid-amber uppercase tracking-wider text-sm flex items-center justify-center gap-2 mt-auto">
                             Ver especificaciones
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </button>
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- SECCIÓN BENEFICIOS                             -->
+        <!-- ============================================== -->
+        <section id="beneficios" class="border-t border-white/5 bg-[#161616] py-28 md:py-36">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20">
+                    <div class="inline-block px-4 py-1.5 border border-neonAmber/20 rounded-full text-xs font-medium uppercase tracking-wider text-neonAmber mb-4">¿Por qué elegirnos?</div>
+                    <h2 class="font-syne font-bold text-4xl md:text-5xl mb-4">Beneficios que impactan tu <span class="text-neonAmber">rentabilidad</span></h2>
+                    <p class="text-textMuted max-w-2xl mx-auto text-lg">Cada solución de PSCCorp está diseñada para entregar resultados medibles desde el primer mes de operación.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Beneficio 1 -->
+                    <div class="bg-card rounded-2xl p-8 border border-white/5 hover:border-neonAmber/30 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-neonAmber/10 flex items-center justify-center mb-6 text-neonAmber group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <h3 class="font-syne font-bold text-xl mb-3">Ahorro del 40% en energía</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Nuestros sistemas de refrigeración con tecnología inverter y los paneles solares de alta eficiencia reducen drásticamente tu factura eléctrica mensual. Clientes reportan ahorros promedio del 40% desde el primer trimestre de operación.</p>
+                    </div>
+
+                    <!-- Beneficio 2 -->
+                    <div class="bg-card rounded-2xl p-8 border border-white/5 hover:border-neonBlue/30 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="font-syne font-bold text-xl mb-3">Cadena de frío garantizada</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Sistemas de monitoreo IoT en tiempo real que aseguran la integridad de tus productos. Alertas automáticas ante cualquier variación de temperatura, cumpliendo normativas COFEPRIS y FDA para almacenamiento controlado.</p>
+                    </div>
+
+                    <!-- Beneficio 3 -->
+                    <div class="bg-card rounded-2xl p-8 border border-white/5 hover:border-neonAmber/30 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-neonAmber/10 flex items-center justify-center mb-6 text-neonAmber group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="font-syne font-bold text-xl mb-3">ROI en menos de 3 años</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">El retorno de inversión de nuestros paneles solares se logra en un promedio de 2.5 años. A partir de ahí, cada kWh generado es ganancia directa para tu operación. Financiamiento flexible disponible con pagos mensuales menores a tu ahorro energético.</p>
+                    </div>
+
+                    <!-- Beneficio 4 -->
+                    <div class="bg-card rounded-2xl p-8 border border-white/5 hover:border-neonBlue/30 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <h3 class="font-syne font-bold text-xl mb-3">Soporte técnico 24/7</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Equipo de ingenieros especializados disponibles las 24 horas, los 7 días de la semana. Mantenimiento preventivo programado, diagnóstico remoto vía IoT y respuesta en sitio en menos de 4 horas en zonas metropolitanas.</p>
+                    </div>
+
+                    <!-- Beneficio 5 -->
+                    <div class="bg-card rounded-2xl p-8 border border-white/5 hover:border-neonAmber/30 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-neonAmber/10 flex items-center justify-center mb-6 text-neonAmber group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="font-syne font-bold text-xl mb-3">Compromiso sustentable</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Reduce la huella de carbono de tu empresa con energía limpia y refrigerantes ecológicos de bajo GWP (Global Warming Potential). Certificaciones ambientales que fortalecen tu marca ante inversionistas y consumidores conscientes.</p>
+                    </div>
+
+                    <!-- Beneficio 6 -->
+                    <div class="bg-card rounded-2xl p-8 border border-white/5 hover:border-neonBlue/30 transition-all duration-300 group">
+                        <div class="w-14 h-14 rounded-2xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+                        </div>
+                        <h3 class="font-syne font-bold text-xl mb-3">Escalabilidad modular</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Sistemas diseñados para crecer con tu negocio. Añade módulos de refrigeración o paneles solares adicionales sin reemplazar la infraestructura existente. Arquitectura plug-and-play que protege tu inversión a largo plazo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- SECCIÓN TECNOLOGÍA                             -->
+        <!-- ============================================== -->
+        <section id="tecnologia" class="py-28 md:py-36">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20">
+                    <div class="inline-block px-4 py-1.5 border border-neonBlue/20 rounded-full text-xs font-medium uppercase tracking-wider text-neonBlue mb-4">Innovación de vanguardia</div>
+                    <h2 class="font-syne font-bold text-4xl md:text-5xl mb-4">Tecnología que <span class="text-neonBlue">respalda</span> cada proyecto</h2>
+                    <p class="text-textMuted max-w-2xl mx-auto text-lg">Utilizamos componentes de grado industrial y tecnologías probadas a nivel global para garantizar máximo rendimiento y durabilidad.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Tech 1: Compresores Inverter -->
+                    <div class="relative bg-card rounded-2xl p-8 border border-white/5 overflow-hidden group hover:border-neonBlue/30 transition-all duration-300">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-neonBlue/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <span class="text-xs font-medium uppercase tracking-wider text-neonBlue">Refrigeración</span>
+                            </div>
+                            <h3 class="font-syne font-bold text-2xl mb-3">Compresores Inverter de última generación</h3>
+                            <p class="text-textMuted text-sm leading-relaxed mb-4">Tecnología de velocidad variable que ajusta la potencia del compresor según la demanda real. Esto elimina los picos de arranque que generan alto consumo eléctrico y desgaste mecánico. Los compresores inverter de PSCCorp operan con refrigerantes ecológicos R-290 y R-449A, cumpliendo las regulaciones ambientales más estrictas del mercado.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">Velocidad variable</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">R-290 / R-449A</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">Bajo ruido</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech 2: Celdas Monocristalinas -->
+                    <div class="relative bg-card rounded-2xl p-8 border border-white/5 overflow-hidden group hover:border-neonAmber/30 transition-all duration-300">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-neonAmber/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-neonAmber/10 flex items-center justify-center text-neonAmber">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                </div>
+                                <span class="text-xs font-medium uppercase tracking-wider text-neonAmber">Energía Solar</span>
+                            </div>
+                            <h3 class="font-syne font-bold text-2xl mb-3">Celdas monocristalinas PERC</h3>
+                            <p class="text-textMuted text-sm leading-relaxed mb-4">Las celdas PERC (Passivated Emitter and Rear Cell) maximizan la captura de luz solar con eficiencias superiores al 21.5%. Su diseño con capa pasivada posterior refleja la luz no absorbida de vuelta a la celda, generando hasta un 12% más de energía que las celdas policristalinas convencionales, especialmente en condiciones de baja irradiación.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">Eficiencia 21.5%+</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">Anti-PID</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">Bifacial disponible</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech 3: Monitoreo IoT -->
+                    <div class="relative bg-card rounded-2xl p-8 border border-white/5 overflow-hidden group hover:border-neonBlue/30 transition-all duration-300">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-neonBlue/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                </div>
+                                <span class="text-xs font-medium uppercase tracking-wider text-neonBlue">Monitoreo</span>
+                            </div>
+                            <h3 class="font-syne font-bold text-2xl mb-3">Plataforma IoT de monitoreo en tiempo real</h3>
+                            <p class="text-textMuted text-sm leading-relaxed mb-4">Dashboard centralizado que visualiza temperaturas, consumo energético, generación solar y estado de equipos en tiempo real. Sensores de grado industrial con conectividad 4G/WiFi que envían datos cada 30 segundos. Alertas por SMS, WhatsApp y correo ante cualquier anomalía, permitiendo acción inmediata antes de que ocurra una falla.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">Dashboard web</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">Alertas SMS/WhatsApp</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">Histórico 5 años</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech 4: Inversores híbridos -->
+                    <div class="relative bg-card rounded-2xl p-8 border border-white/5 overflow-hidden group hover:border-neonAmber/30 transition-all duration-300">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-neonAmber/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-neonAmber/10 flex items-center justify-center text-neonAmber">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <span class="text-xs font-medium uppercase tracking-wider text-neonAmber">Conversión</span>
+                            </div>
+                            <h3 class="font-syne font-bold text-2xl mb-3">Inversores híbridos inteligentes</h3>
+                            <p class="text-textMuted text-sm leading-relaxed mb-4">Inversores con MPPT (Maximum Power Point Tracking) multinivel que optimizan la conversión DC/AC incluso con sombreado parcial. Compatibles con sistemas de almacenamiento en baterías de litio para operar durante cortes de energía. Eficiencia de conversión del 98.6% con protección integrada contra sobretensión, cortocircuito y temperatura excesiva.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">MPPT multinivel</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">98.6% eficiencia</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-white/70">Backup baterías</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -291,9 +476,9 @@
             </div>
             
             <div class="flex gap-6 text-sm text-textMuted">
-                <a href="#" class="hover:text-white transition-colors">Políticas de Privacidad</a>
-                <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
-                <a href="#" class="hover:text-white transition-colors">Portal de Clientes</a>
+                <a href="privacidad.html" class="hover:text-white transition-colors">Políticas de Privacidad</a>
+                <a href="terminos.html" class="hover:text-white transition-colors">Términos de Servicio</a>
+                <a href="portal-clientes.html" class="hover:text-white transition-colors">Portal de Clientes</a>
             </div>
             
             <p class="text-xs text-white/30">
@@ -302,7 +487,286 @@
         </div>
     </footer>
 
+    <!-- ============================================== -->
+    <!-- MODALES DE ESPECIFICACIONES                    -->
+    <!-- ============================================== -->
+
+    <!-- Modal: Serie Frío Extremo -->
+    <div id="modalFrio" class="fixed inset-0 z-[70] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal('modalFrio')"></div>
+        <div class="relative bg-dark border border-neonBlue/30 rounded-3xl max-w-2xl w-[95%] max-h-[85vh] overflow-y-auto shadow-glow-blue transform scale-95 transition-transform duration-300 modal-content">
+            <!-- Header -->
+            <div class="sticky top-0 bg-dark/95 backdrop-blur-md p-6 pb-4 border-b border-white/10 flex items-center justify-between rounded-t-3xl z-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-neonBlue/10 flex items-center justify-center text-neonBlue">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </div>
+                    <h3 class="font-syne font-bold text-xl">Serie Frío Extremo</h3>
+                </div>
+                <button onclick="closeModal('modalFrio')" class="text-white/40 hover:text-white transition-colors p-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 space-y-6">
+                <p class="text-textMuted leading-relaxed">Nuestros sistemas de ultra-congelación Serie Frío Extremo están diseñados para las industrias más exigentes: farmacéutica, alimentaria y logística de cadena fría. Cada unidad integra tecnología inverter de última generación con recuperación de calor residual, optimizando el consumo energético hasta en un 40% respecto a equipos convencionales.</p>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-card rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-neonBlue font-syne font-bold text-2xl">-40°C</p>
+                        <p class="text-textMuted text-xs mt-1">Temp. mínima</p>
+                    </div>
+                    <div class="bg-card rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-neonBlue font-syne font-bold text-2xl">+5°C</p>
+                        <p class="text-textMuted text-xs mt-1">Temp. máxima</p>
+                    </div>
+                    <div class="bg-card rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-neonBlue font-syne font-bold text-2xl">40%</p>
+                        <p class="text-textMuted text-xs mt-1">Ahorro energético</p>
+                    </div>
+                    <div class="bg-card rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-neonBlue font-syne font-bold text-2xl">IoT</p>
+                        <p class="text-textMuted text-xs mt-1">Monitoreo incluido</p>
+                    </div>
+                </div>
+
+                <h4 class="font-syne font-bold text-lg text-white">Modelos disponibles</h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead>
+                            <tr class="border-b border-white/10 text-textMuted text-xs uppercase tracking-wider">
+                                <th class="py-3 pr-4">Modelo</th>
+                                <th class="py-3 pr-4">Capacidad</th>
+                                <th class="py-3 pr-4">Rango °C</th>
+                                <th class="py-3">Consumo</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-white/80">
+                            <tr class="border-b border-white/5">
+                                <td class="py-3 pr-4 font-medium">FE-500</td>
+                                <td class="py-3 pr-4">500 L</td>
+                                <td class="py-3 pr-4">-20°C a +5°C</td>
+                                <td class="py-3">1.2 kWh</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-3 pr-4 font-medium">FE-1500</td>
+                                <td class="py-3 pr-4">1,500 L</td>
+                                <td class="py-3 pr-4">-30°C a +5°C</td>
+                                <td class="py-3">2.8 kWh</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-3 pr-4 font-medium">FE-3000</td>
+                                <td class="py-3 pr-4">3,000 L</td>
+                                <td class="py-3 pr-4">-40°C a +5°C</td>
+                                <td class="py-3">4.5 kWh</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-medium">FE-5000</td>
+                                <td class="py-3 pr-4">5,000 L</td>
+                                <td class="py-3 pr-4">-40°C a +5°C</td>
+                                <td class="py-3">6.1 kWh</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="font-syne font-bold text-lg text-white">Características principales</h4>
+                <ul class="space-y-3 text-textMuted text-sm">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonBlue mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Compresor Inverter:</strong> Ajuste de velocidad continuo que reduce arranques bruscos, minimiza el ruido y extiende la vida útil del equipo.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonBlue mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Recuperación térmica:</strong> El calor generado por el compresor se reutiliza para calentar agua sanitaria, eliminando costos adicionales.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonBlue mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Panel de monitoreo IoT:</strong> Sensores de temperatura y humedad con transmisión de datos en tiempo real. Dashboard web y alertas por WhatsApp.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonBlue mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Refrigerantes ecológicos:</strong> R-290 (propano) y R-449A de bajo potencial de calentamiento global (GWP), cumpliendo normativa Kigali.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonBlue mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Certificaciones:</strong> Cumple con COFEPRIS, NOM-015-ENER, y estándares FDA para almacenamiento farmacéutico y alimentario.</span>
+                    </li>
+                </ul>
+
+                <a href="#cotizar" onclick="closeModal('modalFrio')" class="block w-full text-center bg-gradient-cta text-dark font-bold py-4 rounded-xl text-lg mt-4">Solicitar cotización</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Energía Inteligente -->
+    <div id="modalSolar" class="fixed inset-0 z-[70] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal('modalSolar')"></div>
+        <div class="relative bg-dark border border-neonAmber/30 rounded-3xl max-w-2xl w-[95%] max-h-[85vh] overflow-y-auto shadow-glow-amber transform scale-95 transition-transform duration-300 modal-content">
+            <!-- Header -->
+            <div class="sticky top-0 bg-dark/95 backdrop-blur-md p-6 pb-4 border-b border-white/10 flex items-center justify-between rounded-t-3xl z-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-neonAmber/10 flex items-center justify-center text-neonAmber">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h3 class="font-syne font-bold text-xl">Energía Inteligente</h3>
+                </div>
+                <button onclick="closeModal('modalSolar')" class="text-white/40 hover:text-white transition-colors p-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 space-y-6">
+                <p class="text-textMuted leading-relaxed">Nuestros sistemas de energía solar fotovoltaica Energía Inteligente están diseñados específicamente para el sector industrial. Utilizamos celdas monocristalinas PERC de alta densidad que maximizan la generación eléctrica incluso en condiciones de irradiación moderada. Cada sistema incluye inversores híbridos con MPPT multinivel para la máxima eficiencia de conversión.</p>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-card rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-neonAmber font-syne font-bold text-2xl">21.5%+</p>
+                        <p class="text-textMuted text-xs mt-1">Eficiencia celda</p>
+                    </div>
+                    <div class="bg-card rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-neonAmber font-syne font-bold text-2xl">25 años</p>
+                        <p class="text-textMuted text-xs mt-1">Garantía rendimiento</p>
+                    </div>
+                    <div class="bg-card rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-neonAmber font-syne font-bold text-2xl">98.6%</p>
+                        <p class="text-textMuted text-xs mt-1">Eficiencia inversor</p>
+                    </div>
+                    <div class="bg-card rounded-xl p-4 border border-white/5 text-center">
+                        <p class="text-neonAmber font-syne font-bold text-2xl">2.5 años</p>
+                        <p class="text-textMuted text-xs mt-1">ROI promedio</p>
+                    </div>
+                </div>
+
+                <h4 class="font-syne font-bold text-lg text-white">Paneles disponibles</h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead>
+                            <tr class="border-b border-white/10 text-textMuted text-xs uppercase tracking-wider">
+                                <th class="py-3 pr-4">Modelo</th>
+                                <th class="py-3 pr-4">Potencia</th>
+                                <th class="py-3 pr-4">Eficiencia</th>
+                                <th class="py-3">Tipo</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-white/80">
+                            <tr class="border-b border-white/5">
+                                <td class="py-3 pr-4 font-medium">EI-400M</td>
+                                <td class="py-3 pr-4">400 W</td>
+                                <td class="py-3 pr-4">20.8%</td>
+                                <td class="py-3">Mono PERC</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-3 pr-4 font-medium">EI-450M</td>
+                                <td class="py-3 pr-4">450 W</td>
+                                <td class="py-3 pr-4">21.3%</td>
+                                <td class="py-3">Mono PERC</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-3 pr-4 font-medium">EI-540B</td>
+                                <td class="py-3 pr-4">540 W</td>
+                                <td class="py-3 pr-4">21.5%</td>
+                                <td class="py-3">Mono Bifacial</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-medium">EI-600B</td>
+                                <td class="py-3 pr-4">600 W</td>
+                                <td class="py-3 pr-4">22.0%</td>
+                                <td class="py-3">Mono Bifacial</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="font-syne font-bold text-lg text-white">Características principales</h4>
+                <ul class="space-y-3 text-textMuted text-sm">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonAmber mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Celdas PERC monocristalinas:</strong> Tecnología de capa pasivada posterior que refleja la luz no absorbida, aumentando la generación en un 12% vs. policristalinas.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonAmber mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Inversores híbridos MPPT:</strong> Seguimiento del punto de máxima potencia multinivel. Compatible con baterías de litio para almacenamiento y respaldo.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonAmber mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Estructura anti-huracán:</strong> Soportes de aluminio anodizado con certificación para vientos de hasta 200 km/h. Instalación sobre techo o montaje en piso.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonAmber mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Interconexión a CFE:</strong> Trámites de interconexión incluidos. Contrato de suministro en esquema de Net Metering para compensar excedentes de generación.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-neonAmber mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong class="text-white">Garantías extendidas:</strong> 12 años en manufactura del panel, 25 años en rendimiento (mín. 80% de potencia nominal), 10 años en inversores.</span>
+                    </li>
+                </ul>
+
+                <a href="#cotizar" onclick="closeModal('modalSolar')" class="block w-full text-center bg-gradient-cta text-dark font-bold py-4 rounded-xl text-lg mt-4">Solicitar cotización</a>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // ==========================================
+        // MOBILE MENU
+        // ==========================================
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const panel = document.getElementById('mobileMenuPanel');
+            const isOpen = menu.classList.contains('opacity-100');
+            
+            if (isOpen) {
+                menu.classList.remove('opacity-100');
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                panel.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            } else {
+                menu.classList.remove('opacity-0', 'pointer-events-none');
+                menu.classList.add('opacity-100');
+                panel.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // ==========================================
+        // MODALS
+        // ==========================================
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            const content = modal.querySelector('.modal-content');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100', 'pointer-events-auto');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            const content = modal.querySelector('.modal-content');
+            modal.classList.remove('opacity-100', 'pointer-events-auto');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            document.body.style.overflow = '';
+        }
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal('modalFrio');
+                closeModal('modalSolar');
+                const menu = document.getElementById('mobileMenu');
+                if (menu.classList.contains('opacity-100')) {
+                    toggleMobileMenu();
+                }
+            }
+        });
+
+        // ==========================================
+        // FORM SUBMISSION
+        // ==========================================
         function handleFormSubmit(e) {
             e.preventDefault();
             
